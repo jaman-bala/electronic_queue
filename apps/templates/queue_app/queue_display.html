@@ -1,0 +1,23 @@
+{% extends 'queue_app/base.html' %}
+{% load static %}
+{% block title %}Электронная очередь{% endblock %}
+
+{% block content %}
+   <div class="container mt-5">
+        <div class="last-number-box">
+            <h3>Last Number in Queue:</h3>
+            <p id="last-number">{{ last_number }}</p>
+        </div>
+        <ul>
+            {% for customer in queue %}
+                <li>{{ customer }}</li>
+            {% empty %}
+                <li>No customers in queue.</li>
+            {% endfor %}
+        </ul>
+    </div>
+<script>
+    var queue_url = "{{ queue_url }}";
+</script>
+{% endblock %}
+

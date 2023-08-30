@@ -1,0 +1,25 @@
+{% extends 'queue_app/base.html' %}
+{% load static %}
+{% block title %}Bank Queue{% endblock %}
+
+{% block heading %}Электронная очередь{% endblock %}
+
+{% block content %}
+
+    <div class="container mt-5">
+
+        {% if called_number %}
+            <h2>Клиент очередь №: {{ called_number }}</h2>
+            <form action="" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-success">Следующий</button>
+            </form>
+        {% else %}
+            <p>No numbers to call.</p>
+        {% endif %}
+    </div>
+<!--    <script>-->
+<!--        var call_number_url = "{{ call_number_url }}";-->
+<!--        var display_queue_url = "{{ display_queue_url }}"; // Добавьте это-->
+<!--    </script>-->
+{% endblock %}
